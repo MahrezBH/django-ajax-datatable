@@ -84,13 +84,13 @@ window.AjaxDatatableViewUtils = (function() {
 
         var column = table.api().column(index);
         var old_value = column.search();
-        console.log('Request to search value %o in column %o (current value: %o)', value, index, old_value);
+        // console.log('Request to search value %o in column %o (current value: %o)', value, index, old_value);
         if (value != old_value) {
-            console.log('searching ...');
+            // console.log('searching ...');
             column.search(value).draw();
         }
         else {
-            console.log('skipped');
+            // console.log('skipped');
         }
     };
 
