@@ -183,7 +183,12 @@ window.AjaxDatatableViewUtils = (function() {
             );
 
             var column_filter_row = wrapper.find('.datatable-column-filter-row')
-            column_filter_row.find('input,select').off().on('keyup change', function(event) {
+            column_filter_row.find('input, select').off().on('keyup change', function(event) {
+                // Check if the event is a keyup and the key pressed is Enter (key code 13)
+                if (event.type === 'keyup' && event.keyCode !== 13) {
+                    return; // Exit if the key pressed is not Enter
+                }
+            
                 var target = $(event.target);
                 _handle_column_filter(table, data, target);
             });
